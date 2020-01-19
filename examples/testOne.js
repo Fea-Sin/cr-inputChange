@@ -24,6 +24,7 @@ function render(container) {
       <Testone
         title='传入文本'
         post={doPost}
+        titleStyle={{fontSize: 30, color: 'green'}}
       />
     </div>, container
   )

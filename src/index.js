@@ -11,8 +11,9 @@ class Comp extends PureComponent {
     this.state = {
       canEdit: false,
       changeTitle: props.title || '',
-      icon: true
+      icon: true,
     }
+    this.initTitle = props.title
   }
 
   componentDidMount() {
@@ -33,13 +34,16 @@ class Comp extends PureComponent {
   onBlur = (e) => {
     const { post } = this.props;
     const input = this.ID.input;
+    const value = input.value;
     input.removeEventListener('blur', this.onBlur);
     this.setState({
       canEdit: false,
     }, () => {
       this.styleTitle()
       if (post && typeof post === 'function') {
-        post(input.value)
+        if (this.initTitle !== value)
+        post(value)
+        this.initTitle = value
       }
     })
   }
@@ -68,7 +72,7 @@ class Comp extends PureComponent {
 
   render () {
 
-    const { prefixCls, title } = this.props
+    const { prefixCls, title, titleStyle } = this.props
     
     return (
       <div className={`${prefixCls}`}>
@@ -81,7 +85,7 @@ class Comp extends PureComponent {
                   onChange={this.handleInput}
                   ref={ID => this.ID = ID}
                 />
-              : <span>{this.state.changeTitle}</span>
+              : <span style={titleStyle}>{this.state.changeTitle}</span>
             }
           </div>
           {
@@ -102,8 +106,10 @@ Comp.propTypes = {
   prefixCls: PropTypes.string,
   title: PropTypes.string,
   post: PropTypes.func,
+  titleStyle: PropTypes.object,
 }
 Comp.defaultProps = {
-  prefixCls: 'cr-inputchange'
+  prefixCls: 'cr-inputchange',
+  titleStyle: {},
 }
 export default Comp
