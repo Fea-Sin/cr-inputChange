@@ -1,7 +1,7 @@
-import React, { PureComponent, Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import OuiDom from './utils/ouiDomUtils'
+import React, { PureComponent, Component } from 'react';
+import PropTypes from 'prop-types';
+import Input from 'antd/es/input';
+import 'antd/es/input/style/css';
 
 class Comp extends PureComponent {
 
@@ -23,7 +23,13 @@ class Comp extends PureComponent {
     const { prefixCls } = this.props
     
     return (
-      <div className={`${prefixCls}-text hello`}>HELLO COMP 0000 777777</div>
+      <div className={`${prefixCls}`}>
+        <div className={`${prefixCls}-box`}>
+          <div className={`${prefixCls}-titleBox`}>1</div>
+          <div className={`${prefixCls}-handle`}>2</div>
+        </div>
+        <Input />
+      </div>
     )
   }
 }
@@ -32,6 +38,6 @@ Comp.propTypes = {
   prefixCls: PropTypes.string
 }
 Comp.defaultProps = {
-  prefixCls: 'cr-app'
+  prefixCls: 'cr-inputchange'
 }
 export default Comp
