@@ -1,14 +1,13 @@
-# cr-comp
+## cr-comp
 
 react component
 
 
 ## Usage
 
-use cr-comp create your react component
 
 ```jsx
-git clone https://github.com/Fea-Sin/cr-comp.git your-project-name
+git clone https://github.com/Fea-Sin/cr-inputChange.git
 ```
 
 ## API
@@ -16,7 +15,7 @@ git clone https://github.com/Fea-Sin/cr-comp.git your-project-name
 ## Development
 
 ```
-cnpm install
+npm install
 npm start
 ```
 
@@ -35,4 +34,4 @@ http://localhost:8018/examples/testOne.html
 
 ## License
 
-cr-comp is released under the MIT license.
+cr-inputChange is released under the MIT license.
