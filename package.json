@@ -1,6 +1,6 @@
 {
   "name": "cr-inputchange",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a react component about input",
   "scripts": {
     "start": "rc-tools run server",
