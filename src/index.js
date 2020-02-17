@@ -16,14 +16,22 @@ class Comp extends PureComponent {
     this.initTitle = props.title
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return nextProps.title === prevState.changeTitle
-      ? null
-      : { changeTitle: nextProps.title }
-  }
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return nextProps.title === prevState.changeTitle
+  //     ? null
+  //     : { changeTitle: nextProps.title }
+  // }
 
   componentDidMount() {
 
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.title !== this.props.title) {
+      this.setState({
+        changeTitle: this.props.title
+      })
+    }
   }
 
   handleClick = () => {
