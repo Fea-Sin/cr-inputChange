@@ -16,6 +16,12 @@ class Comp extends PureComponent {
     this.initTitle = props.title
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return nextProps.title === prevState.changeTitle
+      ? null
+      : { changeTitle: nextProps.title }
+  }
+
   componentDidMount() {
 
   }
