@@ -30,8 +30,8 @@ function ChangeText() {
 
 | name | type | description |
 | --- | --- | --- |
-| title | 'string' | 文本框初始文本数据 |
-| post | 'function' | 数据修改后回掉函数 |
+| title | string | 文本框初始文本数据 |
+| post | function | 数据修改后回掉函数 |
 | titleStyle | React.CSSProperties | 文本样式 |
 
 ## Development
