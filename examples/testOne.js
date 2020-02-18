@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import Testone from '..'
+import Testone from 'cr-inputchange'
 import '../assets/index.less'
 
 const reactContainer = document.getElementById('__react-content');
@@ -20,7 +20,7 @@ const doPost = (val) => {
 function render(container) {
   ReactDOM.render(
     <div>
-      <h2>RESCT COMPONENT TEMPLATE</h2>
+      <h2>RESCT COMPONENT TEMPLATEkkkkkk</h2>
       <Testone
         title='传入文本'
         post={doPost}

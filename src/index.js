@@ -23,7 +23,7 @@ class Comp extends PureComponent {
   // }
 
   componentDidMount() {
-
+    // console.log('11110000')
   }
 
   componentDidUpdate(prevProps) {
@@ -98,6 +98,7 @@ class Comp extends PureComponent {
                   value={this.state.changeTitle}
                   onChange={this.handleInput}
                   ref={ID => this.ID = ID}
+                  style={titleStyle}
                 />
               : <span style={titleStyle}>{this.state.changeTitle}</span>
             }
