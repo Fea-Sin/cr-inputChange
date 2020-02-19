@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Input from 'antd/es/input';
 import 'antd/es/input/style/css';
 import Icon from 'antd/es/icon';
+import { trim } from './utils/utils';
+
 
 class Comp extends PureComponent {
 
@@ -23,7 +25,7 @@ class Comp extends PureComponent {
   // }
 
   componentDidMount() {
-    // console.log('11110000')
+    
   }
 
   componentDidUpdate(prevProps) {
@@ -46,23 +48,30 @@ class Comp extends PureComponent {
   }
 
   onBlur = (e) => {
-    const { post } = this.props;
+    const { post, noValue } = this.props;
     const input = this.ID.input;
     const value = input.value;
-    input.removeEventListener('blur', this.onBlur);
+    if (!trim(value)) {
+      // console.log('标题不能为空！')
+      if (noValue && typeof noValue === 'function') {
+        noValue()
+      }
+      return false;
+    }
     this.setState({
       canEdit: false,
     }, () => {
       this.styleTitle()
       if (post && typeof post === 'function') {
         if (this.initTitle !== value)
-        post(value)
+        post(trim(value))
         this.initTitle = value
       }
     })
   }
 
   handleInput = (e) => {
+    const input = e.target;
     const { value } = e.target;
     this.setState({
       changeTitle: value,
@@ -86,7 +95,7 @@ class Comp extends PureComponent {
 
   render () {
 
-    const { prefixCls, title, titleStyle } = this.props
+    const { prefixCls, titleStyle } = this.props
     
     return (
       <div className={`${prefixCls}`}>
@@ -122,6 +131,7 @@ Comp.propTypes = {
   title: PropTypes.string,
   post: PropTypes.func,
   titleStyle: PropTypes.object,
+  noValue: PropTypes.func,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-inputchange',

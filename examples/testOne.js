@@ -17,14 +17,19 @@ const doPost = (val) => {
   console.log('保存数据----', val)
 }
 
+const doNoValue = () => {
+  console.log('弹出提示框')
+}
+
 function render(container) {
   ReactDOM.render(
     <div>
-      <h2>RESCT COMPONENT TEMPLATEkkkkkk</h2>
+      <h2>RESCT COMPONENT TEMPLATE</h2>
       <Testone
         title='传入文本'
         post={doPost}
         titleStyle={{fontSize: 30, color: 'green'}}
+        noValue={doNoValue}
       />
     </div>, container
   )
