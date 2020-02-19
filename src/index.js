@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Input from 'antd/es/input';
 import 'antd/es/input/style/css';
 import Icon from 'antd/es/icon';
+import Tooltip from 'antd/es/tooltip';
+import 'antd/es/tooltip/style/css';
 import { trim } from './utils/utils';
 
 
@@ -116,7 +118,10 @@ class Comp extends PureComponent {
             this.state.icon &&
             (
               <div className={`${prefixCls}-handle`} onClick={this.handleClick}>
-                <Icon type="edit" style={{color: '#3E7AFA'}} />
+                <Tooltip placement='top' title={'编辑'}>
+                  <Icon type="edit" style={{color: '#3E7AFA'}} />
+                </Tooltip>
+                
               </div>
             )
           }
