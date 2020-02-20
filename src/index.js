@@ -45,6 +45,7 @@ class Comp extends PureComponent {
       const input = this.ID.input;
       input.addEventListener('blur', this.onBlur);
       input.focus();
+      input.select();
       this.styleEdit()
     })
   }
