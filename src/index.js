@@ -74,8 +74,11 @@ class Comp extends PureComponent {
   }
 
   handleInput = (e) => {
-    const input = e.target;
+    const { maxLength } = this.props
     const { value } = e.target;
+    if (value && value.length > maxLength) {
+      return false;
+    }
     this.setState({
       changeTitle: value,
     })
@@ -138,6 +141,7 @@ Comp.propTypes = {
   post: PropTypes.func,
   titleStyle: PropTypes.object,
   noValue: PropTypes.func,
+  maxLength: PropTypes.number,
 }
 Comp.defaultProps = {
   prefixCls: 'cr-inputchange',

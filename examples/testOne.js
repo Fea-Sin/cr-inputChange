@@ -30,6 +30,7 @@ function render(container) {
         post={doPost}
         titleStyle={{fontSize: 30, color: 'green'}}
         noValue={doNoValue}
+        maxLength={10}
       />
     </div>, container
   )
