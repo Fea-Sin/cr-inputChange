@@ -6,6 +6,7 @@ import Icon from 'antd/es/icon';
 import Tooltip from 'antd/es/tooltip';
 import 'antd/es/tooltip/style/css';
 import { trim } from './utils/utils';
+import OUIDOM from './utils/ouiDomUtils';
 
 
 class Comp extends PureComponent {
@@ -38,7 +39,8 @@ class Comp extends PureComponent {
     }
   }
 
-  handleClick = () => {
+  handleClick = (e) => {
+
     this.setState({
       canEdit: true,
     }, () => {
@@ -123,9 +125,8 @@ class Comp extends PureComponent {
             (
               <div className={`${prefixCls}-handle`} onClick={this.handleClick}>
                 <Tooltip placement='top' title={'编辑'}>
-                  <Icon type="edit" style={{color: '#3E7AFA'}} />
+                  <Icon type="edit" style={{color: '#3E7AFA', pointerEvents: 'none'}} />
                 </Tooltip>
-                
               </div>
             )
           }
