@@ -123,11 +123,11 @@ class Comp extends PureComponent {
           {
             this.state.icon &&
             (
-              <div className={`${prefixCls}-handle`} onClick={this.handleClick}>
-                <Tooltip placement='top' title={'编辑'}>
+              <Tooltip placement='top' title={'编辑'}>
+                <div className={`${prefixCls}-handle`} onClick={this.handleClick}>
                   <Icon type="edit" style={{color: '#3E7AFA', pointerEvents: 'none'}} />
-                </Tooltip>
-              </div>
+                </div>
+              </Tooltip>
             )
           }
         </div>
