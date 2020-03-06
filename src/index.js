@@ -54,25 +54,35 @@ class Comp extends PureComponent {
 
   onBlur = (e) => {
     const { post, noValue } = this.props;
-    const input = this.ID.input;
-    const value = input.value;
-    if (!trim(value)) {
-      // console.log('标题不能为空！')
-      if (noValue && typeof noValue === 'function') {
-        noValue()
+    if (this.ID) {
+      const input = this.ID.input;
+      const value = input.value;
+      if (!trim(value)) {
+        // console.log('标题不能为空！')
+        if (noValue && typeof noValue === 'function') {
+          noValue()
+        }
+        return false;
       }
-      return false;
+
+      this.setState({
+        canEdit: false,
+      }, () => {
+        this.styleTitle()
+        if (post && typeof post === 'function') {
+          if (this.initTitle !== value)
+          post(trim(value))
+          this.initTitle = value
+        }
+      })
     }
-    this.setState({
-      canEdit: false,
-    }, () => {
-      this.styleTitle()
-      if (post && typeof post === 'function') {
-        if (this.initTitle !== value)
-        post(trim(value))
-        this.initTitle = value
-      }
-    })
+  }
+
+  handleKeyUp = (e) => {
+    if (e.keyCode === 13 && !e.ctrlKey) {
+      console.log('点击enter键----')
+      this.onBlur()
+    }
   }
 
   handleInput = (e) => {
@@ -85,7 +95,6 @@ class Comp extends PureComponent {
       changeTitle: value,
     })
   }
-
   styleEdit = () => {
     const box = document.getElementById('INPUTBOX')
     box.style.width = '500px';
@@ -116,6 +125,7 @@ class Comp extends PureComponent {
                   onChange={this.handleInput}
                   ref={ID => this.ID = ID}
                   style={titleStyle}
+                  onKeyUp={this.handleKeyUp}
                 />
               : <span style={titleStyle}>{this.state.changeTitle}</span>
             }

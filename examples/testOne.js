@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-import Testone from 'cr-inputchange'
-import '../assets/index.less'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import Testone from 'cr-inputchange';
+import '../assets/index.less';
 
 const reactContainer = document.getElementById('__react-content');
 const bodyContainer = document.getElementsByTagName('body')
@@ -30,7 +30,7 @@ function render(container) {
         post={doPost}
         titleStyle={{fontSize: 30, color: 'green'}}
         noValue={doNoValue}
-        maxLength={10}
+        maxLength={50}
       />
     </div>, container
   )
