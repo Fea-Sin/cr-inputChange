@@ -6,8 +6,6 @@ import Icon from 'antd/es/icon';
 import Tooltip from 'antd/es/tooltip';
 import 'antd/es/tooltip/style/css';
 import { trim } from './utils/utils';
-import OUIDOM from './utils/ouiDomUtils';
-
 
 class Comp extends PureComponent {
 
@@ -20,12 +18,6 @@ class Comp extends PureComponent {
     }
     this.initTitle = props.title
   }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return nextProps.title === prevState.changeTitle
-  //     ? null
-  //     : { changeTitle: nextProps.title }
-  // }
 
   componentDidMount() {
     
